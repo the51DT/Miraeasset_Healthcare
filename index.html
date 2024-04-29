@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미래에셋 헬스케어</title>
+  <link rel="stylesheet" href="./asset/css/index.css">
+  <link rel="stylesheet" href="./asset/css/reset.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="main">
+        <img src="./asset/img/홈_ main.jpg">
+        <div class="char">
+          <img src="./asset/img/main_text.jpg">
+          <img src="./asset/img/main_char.jpg">
+        </div>
+    </div>
+    <div class="bottom">
+        <img src="./asset/img/바텀시트.jpg">
+        <div class="bottom1">
+          <img src="./asset/img/바텀1_text.jpg">
+          <img src="./asset/img/바텀1_char.jpg">
+        </div>
+        <div class="bottom2">
+          <img src="./asset/img/바텀2_text.jpg">
+          <img src="./asset/img/바텀2_char.jpg">
+        </div>
+      </div>
+  </div>
+
+  <script>
+    const bottom = document.querySelector('.bottom')
+    bottom.addEventListener('click', ()=>{
+      if(bottom.classList.contains('on')){
+        bottom.classList.remove('on')
+        bottom.style.overflow = 'hidden'
+        bottom.style.height = '200px'
+      }
+      else {
+        bottom.classList.add('on')
+        bottom.style.overflow = 'scroll'
+        bottom.style.height = '90%'
+      }
+    })
+
+
+  </script>
+</body>
+</html>

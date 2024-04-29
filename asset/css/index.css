@@ -1,0 +1,54 @@
+body {
+  background-color: aliceblue;
+}
+.wrap {
+  margin: 0 auto;
+  max-width: 393px;
+}
+
+
+.main {
+  position: relative;
+  height: 4998px;
+  overflow: hidden;
+}
+.char img {
+  position: absolute;
+}
+.char img:first-of-type {
+  top: 2117px;
+  left: 114px;
+}
+.char img:last-of-type {
+  top: 2181px;
+  left: 59px;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  height: 200px;
+  overflow: hidden;
+}
+.bottom::-webkit-scrollbar {
+  display: none;
+}
+.bottom1 img, .bottom2 img{
+  position: absolute;
+}
+.bottom1 img:first-of-type {
+  top: 978px;
+  left: 115px;
+}
+.bottom1 img:last-of-type {
+  top: 1029px;
+  left: 51px;
+}
+.bottom2 img:first-of-type {
+  top: 1571px;
+  left: 66px;
+}
+.bottom2 img:last-of-type {
+  top: 1654px;
+  left: 204px;
+}
