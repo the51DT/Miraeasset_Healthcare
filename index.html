@@ -30,17 +30,37 @@
   </div>
 
   <script>
+    const body = document.querySelector('body')
     const bottom = document.querySelector('.bottom')
+    const char1 = document.querySelector('.char')
+    const char2 = document.querySelector('.bottom1')
+    const char3 = document.querySelector('.bottom2')
     bottom.addEventListener('click', ()=>{
       if(bottom.classList.contains('on')){
         bottom.classList.remove('on')
         bottom.style.overflow = 'hidden'
         bottom.style.height = '200px'
+        body.style.overflow = 'scroll'
+        bottom.scrollTop = 0
       }
       else {
         bottom.classList.add('on')
         bottom.style.overflow = 'scroll'
         bottom.style.height = '90%'
+        body.style.overflow = 'hidden'
+      }
+    })
+    window.addEventListener('scroll', ()=>{
+      if(window.pageYOffset > 1800) {
+        char1.style.display = 'block'
+      }
+    })
+    bottom.addEventListener('scroll', ()=>{
+      if(bottom.scrollTop > 700) {
+        char2.style.display = 'block'
+      }
+      if(bottom.scrollTop > 1200) {
+        char3.style.display = 'block'
       }
     })
 

@@ -12,16 +12,41 @@ body {
   height: 4998px;
   overflow: hidden;
 }
+.char {
+  display: none;
+  position: absolute;
+  top: 2117px;
+  left: 0px;
+  animation: char1 1s;
+}
 .char img {
   position: absolute;
 }
 .char img:first-of-type {
-  top: 2117px;
   left: 114px;
+  opacity: 0;
+  animation: text 0.5s ease-in-out forwards;
+  animation-delay: 1s;
 }
 .char img:last-of-type {
-  top: 2181px;
+  top: 64px;
   left: 59px;
+}
+@keyframes char1 {
+  0% {
+    top: 1400px;
+  }
+  100% {
+    top: 2117px;
+  }
+}
+@keyframes text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .bottom {
@@ -36,19 +61,53 @@ body {
 .bottom1 img, .bottom2 img{
   position: absolute;
 }
-.bottom1 img:first-of-type {
+.bottom1 {
+  display: none;
+  position: absolute;
   top: 978px;
+  left: 0;
+  animation: char2 1s ease-in-out;
+}
+.bottom1 img:first-of-type {
   left: 115px;
+  opacity: 0;
+  animation: text 0.5s ease-in-out forwards;
+  animation-delay: 1s;
 }
 .bottom1 img:last-of-type {
-  top: 1029px;
+  top: 51px;
   left: 51px;
 }
-.bottom2 img:first-of-type {
+.bottom2 {
+  display: none;
+  position: absolute;
   top: 1571px;
+  left: 0;
+  animation: char3 1s ease-in-out;
+}
+.bottom2 img:first-of-type {
   left: 66px;
+  opacity: 0;
+  animation: text 0.5s ease-in-out forwards;
+  animation-delay: 1s;
 }
 .bottom2 img:last-of-type {
-  top: 1654px;
+  top: 83px;
   left: 204px;
+}
+@keyframes char2 {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes char3 {
+  0% {
+    left: 300px;
+  }
+  100% {
+    left: 0;
+  }
 }
