@@ -6,8 +6,217 @@
   <title>미래에셋 헬스케어 A안</title>
   <link rel="stylesheet" href="./asset/css/type_a.css">
   <link rel="stylesheet" href="./asset/css/reset.css">
+  <link rel="stylesheet" href="./asset/css/swiper.min.css">
+  <script src="./asset/js/swiper.js"></script>
 </head>
 <body>
-  
+  <div class="wrap">
+    <div class="home on">
+      <img class="top_w" src="./asset/img/type_a/bar_w.png">
+      <div class="home_tab">
+        <div>
+          <img src="./asset/img/type_a/home_tab1.png">
+        </div>
+        <img src="./asset/img/type_a/home_tab2.png" class="tab2">
+        <img src="./asset/img/type_a/home_tab3.png" class="tab3">
+      </div>
+      <img class="home_menu" src="./asset/img/type_a/home_menu.png">
+      <img class="home_indicator" src="./asset/img/type_a/home_indicator.png">
+
+      <div class="swiper-container swiper-home">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="home_text" src="./asset/img/type_a/home1_text.png">
+          </div>
+          <div class="swiper-slide">
+            <img class="home_text" src="./asset/img/type_a/home2_text.png">
+            <img class="home_char" src="./asset/img/type_a/home2_char.png">
+          </div>
+          <div class="swiper-slide">
+            <img class="home_text" src="./asset/img/type_a/home3_text.png">
+          </div>
+          <div class="swiper-slide">
+            <img class="home_text" src="./asset/img/type_a/home4_text.png">
+          </div>
+          <div class="swiper-slide">
+            <img class="home_text" src="./asset/img/type_a/home5_text.png">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="life">
+      <img class="top_b" src="./asset/img/type_a/bar_b.png">
+      <div class="life_tab">
+        <img src="./asset/img/type_a/life_tab1.jpg" class="tab1">
+        <div>
+          <img src="./asset/img/type_a/life_tab2.jpg">
+        </div>
+        <img src="./asset/img/type_a/life_tab3.jpg" class="tab3">
+      </div>
+      <img src="./asset/img/type_a/life.jpg">
+    </div>
+
+    <div class="care">
+      <img class="top_b" src="./asset/img/type_a/bar_b.png">
+      <div class="care_tab">
+        <img src="./asset/img/type_a/care_tab1.jpg" class="tab1">
+        <img src="./asset/img/type_a/care_tab2.jpg" class="tab2">
+        <div>
+          <img src="./asset/img/type_a/care_tab3.jpg">
+        </div>
+      </div>
+
+      <img class="care_line_char" src="./asset/img/type_a/care_line_char.png">
+      <div class="care_line"></div>
+
+      <img class="care_badge" src="./asset/img/type_a/care_badge.png">
+
+      <img class="care_banner" src="./asset/img/type_a/care_banner.png">
+
+      <img class="care_text" src="./asset/img/type_a/care_text.png">
+      <img class="care_char" src="./asset/img/type_a/care_char.png">
+      <img class="care_left" src="./asset/img/type_a/care_left.png">
+      <img class="care_right" src="./asset/img/type_a/care_right.png">
+
+      <div class="swiper-container care1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./asset/img/type_a/care_1_3.png"></div>
+          <div class="swiper-slide"><img src="./asset/img/type_a/care_1_1.png"></div>
+          <div class="swiper-slide"><img src="./asset/img/type_a/care_1_2.png"></div>
+        </div>
+      </div>
+
+      <div class="swiper-container care2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="./asset/img/type_a/care_2_1.png"></div>
+          <div class="swiper-slide"><img src="./asset/img/type_a/care_2_2.png"></div>
+          <div class="swiper-slide"><img src="./asset/img/type_a/care_2_3.png"></div>
+        </div>
+      </div>
+
+      <img src="./asset/img/type_a/care.jpg">
+    </div>
+
+    <div class="badge">
+      <img class="top_w" src="./asset/img/type_a/bar.jpg">
+      <img class="sub" src="./asset/img/type_a/badge.jpg">
+      <img class="back" src="./asset/img/type_a/back.png">
+    </div>
+
+    <div class="banner">
+      <img class="top_w" src="./asset/img/type_a/bar.jpg">
+      <img class="sub" src="./asset/img/type_a/banner.jpg">
+      <img class="back" src="./asset/img/type_a/back.png">
+    </div>
+  </div>
+
+  <script>
+    const tab1 = document.querySelectorAll('.tab1')
+    const tab2 = document.querySelectorAll('.tab2')
+    const tab3 = document.querySelectorAll('.tab3')
+
+    const home = document.querySelector('.home')
+    const life = document.querySelector('.life')
+    const care = document.querySelector('.care')
+
+    tab1.forEach((el)=>{
+      el.addEventListener('click', ()=>{
+        home.classList.add('on')
+        life.classList.remove('on')
+        care.classList.remove('on')
+      })
+    })
+    tab2.forEach((el)=>{
+      el.addEventListener('click', ()=>{
+        home.classList.remove('on')
+        life.classList.add('on')
+        care.classList.remove('on')
+      })
+    })
+    tab3.forEach((el)=>{
+      el.addEventListener('click', ()=>{
+        home.classList.remove('on')
+        life.classList.remove('on')
+        care.classList.add('on')
+      })
+    })
+
+    const target = document.querySelector('.care_char')
+    const text = document.querySelector('.care_text')
+    const left = document.querySelector('.care_left')
+    const right = document.querySelector('.care_right')
+
+    const io = new IntersectionObserver ((en) => {
+      en.forEach((el) => {
+        if(el.isIntersecting) {
+          text.classList.add('on')
+          left.classList.add('on')
+          right.classList.add('on')
+        }
+      })
+    })
+
+    io.observe(target)
+
+    const badge = document.querySelector('.badge')
+    const badge_btn = document.querySelector('.care_badge')
+    const badge_back = document.querySelector('.badge .back')
+    const banner = document.querySelector('.banner')
+    const banner_btn = document.querySelector('.care_banner')
+    const banner_back = document.querySelector('.banner .back')
+
+    badge_btn.addEventListener('click', ()=>{
+      badge.classList.add('on')
+      care.classList.remove('on')
+      window.scrollTo(0,0)
+    })
+    badge_back.addEventListener('click', ()=>{
+      badge.classList.remove('on')
+      care.classList.add('on')
+    })
+    banner_btn.addEventListener('click', ()=>{
+      banner.classList.add('on')
+      care.classList.remove('on')
+      window.scrollTo(0,0)
+    })
+    banner_back.addEventListener('click', ()=>{
+      banner.classList.remove('on')
+      care.classList.add('on')
+    })
+
+    const swiper_home = new Swiper('.swiper-home', {
+      direction: 'vertical',
+      slidesPerView: 1,
+      loop: false,
+      // autoHeight: true,
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    })
+
+    const care1 = new Swiper('.care1', {
+      slidesPerView: 'auto',
+      loop: true,
+      centeredSlides: true,
+      spaceBetween: 16,
+      initialSlide: 1,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    })
+
+    const care2 = new Swiper('.care2', {
+      slidesPerView: 1,
+      loop: false,
+      spaceBetween: 16,
+      width: 190,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    })
+  </script>
 </body>
 </html>
