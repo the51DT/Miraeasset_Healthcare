@@ -17,13 +17,13 @@
       </div>
       <ul class="tab">
         <li>
-          <a href="#main01"><span class="heart01"></span>홈</a>
+          <a><span class="heart01"></span>홈</a>
         </li>
         <li>
-          <a href="#main02"><span class="heart02"></span>헬스케어</a>
+          <a><span class="heart02"></span>헬스케어</a>
         </li>
         <li>
-          <a href="#"><span class="heart03"></span>보험</a>
+          <a><span class="heart03"></span>보험</a>
         </li>
       </ul>
       <div id="main01">
@@ -71,6 +71,20 @@
       </div>
       <div class="main03" id="main03" style="display: none">
         <img src="./asset/img/type_b/main03.png" alt="메인03" />
+      </div>
+      <div class="main04" id="main04" style="display: none">
+        <div class="main04_img">
+          <img src="./asset/img/type_b/bottom.png" alt="메인04" />
+          <div class="animation-btm-box02">
+            <a>
+              <img src="./asset/img/type_b/btm_rabbit.png" alt="바텀 토끼"
+            /></a>
+            <img
+              src="./asset/img/type_b/btm_rabbit_text.png"
+              alt="바텀 토끼 문구"
+            />
+          </div>
+        </div>
       </div>
       <div class="sub-page" id="1" style="display: none">
         <div class="top-fix">
@@ -120,8 +134,11 @@
     const main01 = document.getElementById("main01");
     const main02 = document.getElementById("main02");
     const main03 = document.getElementById("main03");
+    const main04 = document.getElementById("main04");
+    const main04Ani = document.querySelector(".main04");
     const mainAni = document.querySelector(".animation-main-box");
     const btmAni = document.querySelector(".animation-btm-box02");
+    const btmAni2 = document.querySelector(".main04 .animation-btm-box02");
     const btmImg = document.querySelector(".bottom-fix-btm img");
     // 탭
     const tabs = document.querySelectorAll(".tab li");
@@ -135,39 +152,26 @@
 
           // 클릭한 탭에 활성 클래스 추가
           this.classList.add("active");
-
+          // '헬스케어' 탭을 클릭한 경우
+          if (this.textContent.trim() === "홈") {
+            main01.style.display = "block";
+            main02.style.display = "block";
+            main03.style.display = "none";
+            main04.style.display = "none";
+          }
           // '헬스케어' 탭을 클릭한 경우
           if (this.textContent.trim() === "헬스케어") {
-            // 바텀시트 높이 조절
-            if (bottom.classList.contains("on")) {
-              bottom.classList.remove("on");
-              body.style.overflowY = "scroll";
-              tabs[0].classList.add("active");
-            } else {
-              bottom.classList.add("on");
-              body.style.overflowY = "hidden";
-              bottom.addEventListener("scroll", () => {
-                if (bottom.scrollTop > 800) {
-                  btmAni.style.display = "block";
-                }
-              });
-            }
-          } else {
-            // 다른 탭을 클릭한 경우
-            bottom.classList.remove("on");
-            bottom.style.overflow = "hidden";
-            bottom.style.height = "175px";
-            body.style.overflowY = "scroll";
+            main01.style.display = "none";
+            main02.style.display = "none";
+            main03.style.display = "none";
+            main04.style.display = "block";
           }
           // '보험' 탭 클릭한 경우
           if (this.textContent.trim() === "보험") {
             main01.style.display = "none";
             main02.style.display = "none";
             main03.style.display = "block";
-          } else {
-            main01.style.display = "block";
-            main02.style.display = "block";
-            main03.style.display = "none";
+            main04.style.display = "none";
           }
         });
       });
@@ -179,20 +183,26 @@
         bottom.classList.remove("on");
         body.style.overflowY = "scroll";
         btmImg.scrollIntoView({ block: "start" });
-        tabs[0].classList.add("active");
-        tabs[1].classList.remove("active");
       } else {
         bottom.classList.add("on");
-        tabs[1].classList.add("active");
-        tabs[0].classList.remove("active");
-        tabs[2].classList.remove("active");
+        body.style.overflowY = "hidden";
       }
     });
+
     // 메인 애니메이션
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 1800) {
         mainAni.style.display = "block";
       }
+    });
+    console.log(btmAni2);
+
+    // 바텀시트 애니메이션
+    main04Ani.addEventListener("scroll", () => {
+      if (main04Ani.scrollTop > 500) {
+        btmAni2.style.display = "block";
+      }
+      console.log(main04Ani.scrollTop);
     });
 
     // 바텀시트 애니메이션

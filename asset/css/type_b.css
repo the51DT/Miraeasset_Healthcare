@@ -32,6 +32,10 @@ body::-webkit-scrollbar {
   top: 110px;
   height: calc(100vh - 110px);
   background-color: #fff;
+  overflow-y: scroll;
+}
+.sub-img::-webkit-scrollbar {
+  display: none;
 }
 
 .top-fix {
@@ -52,6 +56,8 @@ body::-webkit-scrollbar {
   width: 100%;
   padding-right: 20px;
   background-color: #fff;
+  cursor: pointer;
+  z-index: 100;
 }
 .tab li.active {
   padding-left: 21px;
@@ -123,10 +129,9 @@ body::-webkit-scrollbar {
   cursor: pointer;
   z-index: 3;
 }
-/* .bottom-fix-btm {
-  position: relative;
-  top: 48px;
-} */
+.bottom-fix-btm {
+  margin-top: 48px;
+}
 .health-swiper {
   top: 182px;
 }
@@ -223,7 +228,7 @@ body::-webkit-scrollbar {
 .animation-btm-box02 {
   display: none;
   position: absolute;
-  top: 1320px;
+  top: 1132px;
   left: 0;
   animation: btmAni 1s ease-in-out;
 }
@@ -239,10 +244,12 @@ body::-webkit-scrollbar {
 }
 @keyframes btmAni {
   0% {
-    top: 500px;
+    top: 1100px;
+    opacity: 0;
   }
   100% {
-    top: 1371px;
+    top: 1132px;
+    opacity: 1;
   }
 }
 .btn {
@@ -251,14 +258,14 @@ body::-webkit-scrollbar {
 }
 .link_btn01 {
   position: absolute;
-  top: 1853px;
+  top: 1674px;
   left: 39%;
   width: 84px;
   height: 28px;
 }
 .link_btn02 {
   position: absolute;
-  top: 2697px;
+  top: 2522px;
   left: 36%;
   width: 111px;
   height: 28px;
@@ -274,4 +281,44 @@ body::-webkit-scrollbar {
   left: 18px;
   position: absolute;
   cursor: pointer;
+}
+#main04 {
+  height: 100vh;
+  overflow-y: scroll;
+}
+.main04::-webkit-scrollbar {
+  display: none;
+}
+.main04 img {
+  margin-top: 182px;
+}
+.main04 .animation-btm-box02 {
+  display: none;
+  position: absolute;
+  top: 1100px;
+  left: 0;
+  animation: btmAni2 1s ease-in-out;
+}
+.main04 .animation-btm-box02 a img {
+  top: 73px;
+  left: 73px;
+}
+.main04 .animation-btm-box02 > img {
+  left: 115px;
+  opacity: 0;
+  animation: text 0.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+@keyframes btmAni2 {
+  0% {
+    top: 1000px;
+    opacity: 0;
+  }
+  100% {
+    top: 1100px;
+    opacity: 1;
+  }
+}
+.main04_img {
+  position: relative;
 }
