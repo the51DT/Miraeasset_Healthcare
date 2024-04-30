@@ -57,7 +57,7 @@
         <div class="bottom-fix-btm">
           <img src="./asset/img/type_b/bottom.png" alt="바텀시트" />
           <div class="animation-btm-box02">
-            <a href="./type_b_sub_card.html">
+            <a class="btn sub_a">
               <img src="./asset/img/type_b/btm_rabbit.png" alt="바텀 토끼"
             /></a>
             <img
@@ -65,18 +65,58 @@
               alt="바텀 토끼 문구"
             />
           </div>
-          <a href="./type_b_sub_myroutine.html" class="btn link_btn01"></a>
-          <a href="./type_b_sub_healthMore.html" class="btn link_btn02"></a>
+          <a class="btn link_btn01 sub_b"></a>
+          <a class="btn link_btn02 sub_c"></a>
         </div>
       </div>
       <div class="main03" id="main03" style="display: none">
         <img src="./asset/img/type_b/main03.png" alt="메인03" />
+      </div>
+      <div class="sub-page" id="1" style="display: none">
+        <div class="top-fix">
+          <img src="./asset/img/type_b/status_bar.png" alt="상태바" />
+          <img src="./asset/img/type_b/sub_card_nav.png" alt="네비바" />
+          <div class="goback"></div>
+        </div>
+        <div class="sub-img">
+          <img
+            src="./asset/img/type_b/sub_card.png"
+            alt="카드 장바구니 서브페이지"
+          />
+        </div>
+      </div>
+      <div class="sub-page" id="3" style="display: none">
+        <div class="top-fix">
+          <img src="./asset/img/type_b/status_bar.png" alt="상태바" />
+          <img src="./asset/img/type_b/sub_healthMore_nav.png" alt="네비바" />
+          <div class="goback"></div>
+        </div>
+        <div class="sub-img">
+          <img
+            src="./asset/img/type_b/sub_healthMore.png"
+            alt="건강기록 서브페이지"
+          />
+        </div>
+      </div>
+      <div class="sub-page" id="2" style="display: none">
+        <div class="top-fix">
+          <img src="./asset/img/type_b/status_bar.png" alt="상태바" />
+          <img src="./asset/img/type_b/sub_myroutine_nav.png" alt="네비바" />
+          <div class="goback"></div>
+        </div>
+        <div class="sub-img">
+          <img
+            src="./asset/img/type_b/sub_myroutine.png"
+            alt="마이루틴 서브페이지"
+          />
+        </div>
       </div>
     </div>
   </body>
   <script>
     const body = document.querySelector("body");
     const bottom = document.querySelector(".bottom");
+    const bottomImg = document.querySelector(".bottom-fix-top>img");
     const main01 = document.getElementById("main01");
     const main02 = document.getElementById("main02");
     const main03 = document.getElementById("main03");
@@ -101,14 +141,10 @@
             // 바텀시트 높이 조절
             if (bottom.classList.contains("on")) {
               bottom.classList.remove("on");
-              bottom.style.overflow = "hidden";
-              bottom.style.height = "175px";
               body.style.overflowY = "scroll";
               tabs[0].classList.add("active");
             } else {
               bottom.classList.add("on");
-              bottom.style.overflowY = "scroll";
-              bottom.style.height = "calc(100% - 174px)";
               body.style.overflowY = "hidden";
               bottom.addEventListener("scroll", () => {
                 if (bottom.scrollTop > 800) {
@@ -138,11 +174,9 @@
     });
 
     // 바텀시트 클릭 이벤트 처리
-    bottom.addEventListener("click", function () {
+    bottomImg.addEventListener("click", function () {
       if (bottom.classList.contains("on")) {
         bottom.classList.remove("on");
-        bottom.style.overflowY = "hidden";
-        bottom.style.height = "175px";
         body.style.overflowY = "scroll";
         btmImg.scrollIntoView({ block: "start" });
         tabs[0].classList.add("active");
@@ -152,8 +186,6 @@
         tabs[1].classList.add("active");
         tabs[0].classList.remove("active");
         tabs[2].classList.remove("active");
-        bottom.style.overflowY = "scroll";
-        bottom.style.height = "calc(100% - 174px)";
       }
     });
     // 메인 애니메이션
@@ -212,6 +244,27 @@
         disableOnInteraction: false,
       },
       loop: true,
+    });
+    const btnA = document.querySelector(".sub_a");
+    const btnB = document.querySelector(".sub_b");
+    const btnC = document.querySelector(".sub_c");
+    btnA.addEventListener("click", function () {
+      document.getElementById("1").style.display = "block";
+    });
+    btnB.addEventListener("click", function () {
+      document.getElementById("2").style.display = "block";
+    });
+    btnC.addEventListener("click", function () {
+      document.getElementById("3").style.display = "block";
+    });
+
+    const back_btn = document.querySelectorAll(".goback");
+    back_btn.forEach((el) => {
+      el.addEventListener("click", () => {
+        document.getElementById("1").style.display = "none";
+        document.getElementById("2").style.display = "none";
+        document.getElementById("3").style.display = "none";
+      });
     });
   </script>
 </html>

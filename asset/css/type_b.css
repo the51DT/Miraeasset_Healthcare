@@ -19,14 +19,21 @@ body::-webkit-scrollbar {
   background-color: #fff;
   position: relative;
 }
-.body__wrap.sub-page {
+.sub-page {
   height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
 }
-.body__wrap.sub-page .sub-img {
+.sub-page .sub-img {
   width: 393px;
   position: absolute;
   top: 110px;
+  height: calc(100vh - 110px);
+  background-color: #fff;
 }
+
 .top-fix {
   position: fixed;
   top: 0;
@@ -102,6 +109,10 @@ body::-webkit-scrollbar {
   flex-direction: column;
   box-shadow: 2px 2px 24px 0px rgba(0, 0, 0, 0.2);
   border-radius: 20px 20px 0 0;
+}
+.bottom.on {
+  height: calc(100% - 174px);
+  overflow-y: scroll;
 }
 .bottom::-webkit-scrollbar {
   display: none;
@@ -236,6 +247,7 @@ body::-webkit-scrollbar {
 }
 .btn {
   display: block;
+  cursor: pointer;
 }
 .link_btn01 {
   position: absolute;
@@ -255,7 +267,7 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 142px;
 }
-#goback {
+.goback {
   width: 24px;
   height: 24px;
   top: 69px;
