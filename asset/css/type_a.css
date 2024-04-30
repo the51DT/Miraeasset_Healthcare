@@ -42,6 +42,7 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 .back {
+  cursor: pointer;
   position: absolute;
   top: 82px;
   left: 25px;
@@ -239,11 +240,13 @@ body::-webkit-scrollbar {
   }
 }
 .care_badge {
+  cursor: pointer;
   position: absolute;
   top: 578px;
   left: 20px;
 }
 .care_banner {
+  cursor: pointer;
   position: absolute;
   top: 696px;
   left: 16px;
