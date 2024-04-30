@@ -6,8 +6,207 @@
     <title>미래에셋 헬스케어 B안</title>
     <link rel="stylesheet" href="./asset/css/type_b.css" />
     <link rel="stylesheet" href="./asset/css/reset.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
-    fffff
+    <div class="body__wrap">
+      <div class="top-fix">
+        <img src="./asset/img/type_b/status_bar.png" alt="상태바" />
+        <img src="./asset/img/type_b/nav_bar.png" alt="네비바" />
+      </div>
+      <ul class="tab">
+        <li>
+          <a href="#main01"><span class="heart01"></span>홈</a>
+        </li>
+        <li>
+          <a href="#main02"><span class="heart02"></span>헬스케어</a>
+        </li>
+        <li>
+          <a href="#"><span class="heart03"></span>보험</a>
+        </li>
+      </ul>
+      <div id="main01">
+        <div class="swiper health-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./asset/img/type_b/slide_01_01.png" alt="슬라이드 01" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./asset/img/type_b/slide_01_02.png" alt="슬라이드 02" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="mine">
+          <img src="./asset/img/type_b/main_mine.png" alt="내보험" />
+          <div class="count" id="count">0</div>
+        </div>
+        <div class="main_total">
+          <img src="./asset/img/type_b/main_img.png" alt="메인 전체 이미지" />
+        </div>
+        <div class="animation-main-box">
+          <img src="./asset/img/type_b/main_rabbit.png" alt="토끼" />
+          <img src="./asset/img/type_b/main_rabbit_text.png" alt="토끼 문구" />
+        </div>
+      </div>
+      <div class="bottom" id="main02">
+        <div class="bottom-fix-top">
+          <img src="./asset/img/type_b/bottom-fix.jpg" alt="바텀시트" />
+        </div>
+        <div class="bottom-fix-btm">
+          <img src="./asset/img/type_b/bottom.png" alt="바텀시트" />
+          <div class="animation-btm-box02">
+            <a href="./type_b_sub_card.html">
+              <img src="./asset/img/type_b/btm_rabbit.png" alt="바텀 토끼"
+            /></a>
+            <img
+              src="./asset/img/type_b/btm_rabbit_text.png"
+              alt="바텀 토끼 문구"
+            />
+          </div>
+          <a href="./type_b_sub_myroutine.html" class="btn link_btn01"></a>
+          <a href="./type_b_sub_healthMore.html" class="btn link_btn02"></a>
+        </div>
+      </div>
+      <div class="main03" id="main03" style="display: none">
+        <img src="/asset/img/type_b/main03.png" alt="메인03" />
+      </div>
+    </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
+  <script>
+    const body = document.querySelector("body");
+    const bottom = document.querySelector(".bottom");
+    const main01 = document.getElementById("main01");
+    const main02 = document.getElementById("main02");
+    const main03 = document.getElementById("main03");
+    const mainAni = document.querySelector(".animation-main-box");
+    const btmAni = document.querySelector(".animation-btm-box02");
+
+    // 탭
+    const tabs = document.querySelectorAll(".tab li");
+    document.addEventListener("DOMContentLoaded", function () {
+      tabs[0].classList.add("active");
+      // 탭 클릭 이벤트 처리
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", function () {
+          // 모든 탭에서 활성 클래스 제거
+          tabs.forEach((t) => t.classList.remove("active"));
+
+          // 클릭한 탭에 활성 클래스 추가
+          this.classList.add("active");
+
+          // '헬스케어' 탭을 클릭한 경우
+          if (this.textContent.trim() === "헬스케어") {
+            // 바텀시트 높이 조절
+            if (bottom.classList.contains("on")) {
+              bottom.classList.remove("on");
+              bottom.style.overflow = "hidden";
+              bottom.style.height = "200px";
+              body.style.overflowY = "scroll";
+            } else {
+              bottom.classList.add("on");
+              bottom.style.overflowY = "scroll";
+              bottom.style.height = "calc(100% - 174px)";
+              body.style.overflowY = "hidden";
+              bottom.addEventListener("scroll", () => {
+                if (bottom.scrollTop > 800) {
+                  btmAni.style.display = "block";
+                }
+              });
+            }
+          } else {
+            // 다른 탭을 클릭한 경우
+            bottom.classList.remove("on");
+            bottom.style.overflow = "hidden";
+            bottom.style.height = "200px";
+            body.style.overflowY = "scroll";
+          }
+          // '보험' 탭 클릭한 경우
+          if (this.textContent.trim() === "보험") {
+            main01.style.display = "none";
+            main02.style.display = "none";
+            main03.style.display = "block";
+          } else {
+            main01.style.display = "block";
+            main02.style.display = "block";
+            main03.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // 바텀시트 클릭 이벤트 처리
+    bottom.addEventListener("click", function () {
+      if (bottom.classList.contains("on")) {
+        bottom.classList.remove("on");
+        bottom.style.overflowY = "hidden";
+        bottom.style.height = "200px";
+        body.style.overflowY = "scroll";
+      } else {
+        bottom.classList.add("on");
+        tabs[1].classList.add("active");
+        tabs[0].classList.remove("active");
+        tabs[2].classList.remove("active");
+        bottom.style.overflowY = "scroll";
+        bottom.style.height = "calc(100% - 174px)";
+        body.style.overflowY = "hidden";
+      }
+    });
+    // 메인 애니메이션
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 1800) {
+        mainAni.style.display = "block";
+      }
+    });
+
+    // 바텀시트 애니메이션
+    bottom.addEventListener("scroll", () => {
+      if (bottom.scrollTop > 800) {
+        btmAni.style.display = "block";
+      }
+    });
+
+    // 숫자 카운트 애니메이션
+    gsap.to("#count", {
+      duration: 2,
+      innerHTML: 110300,
+      ease: "power4.out",
+      onStart: function () {
+        console.log("Animation started!");
+      },
+      onComplete: function () {
+        console.log("Animation completed!");
+      },
+      onUpdate: function () {
+        // GSAP의 onUpdate 콜백을 사용하여 숫자 형식 변경 및 콤마(,) 추가
+        const currentNumber = Math.floor(this.targets()[0].innerHTML);
+        const formattedNumber = currentNumber.toLocaleString();
+        this.targets()[0].innerHTML = formattedNumber;
+      },
+    });
+
+    // 스와이프
+    var swiper = new Swiper(".health-swiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      loop: true,
+    });
+  </script>
 </html>
