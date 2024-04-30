@@ -1,9 +1,18 @@
+@font-face {
+  font-family: "pretendard";
+  font-weight: 700;
+  src: url("../font/Pretendard-Bold.otf")
+    format("opentype");
+}
 body {
   background-color: black;
-  font-family: "Pretendard Variable", Pretendard, -apple-system,
+  font-family: "pretendard", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 .body__wrap {
   width: 393px;
