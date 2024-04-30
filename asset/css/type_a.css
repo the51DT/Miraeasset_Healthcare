@@ -13,10 +13,14 @@ body::-webkit-scrollbar {
   background-color: #FFF;
 }
 
+.w100 {
+  width: 100%;
+}
 .top_w, .top_b {
   position: fixed;
   z-index: 5;
   top: 0;
+  width: 393px;
 }
 .top_b {
   background-color: #FFF;
@@ -44,8 +48,9 @@ body::-webkit-scrollbar {
 .back {
   cursor: pointer;
   position: absolute;
-  top: 82px;
+  top: 83px;
   left: 25px;
+  width: 12px;
 }
 
 .home {
@@ -67,24 +72,30 @@ body::-webkit-scrollbar {
 .home_tab>div::after {
   content: '';
   position: absolute;
-  top: 39px;
+  top: 38px;
   left: 32px;
   display: block;
   width: 67px;
   height: 2px;
   background-image: url('../img/type_a/home_tab_bar.png');
+  background-size: cover;
+}
+.home_tab img {
+  width: 131px;
 }
 .home_menu {
   position: absolute;
   bottom: 60px;
   left: 46px;
   z-index: 5;
+  width: 301px;
 }
 .home_indicator {
   position: absolute;
   bottom: 8px;
   left: 135px;
   z-index: 5;
+  width: 123px;
 }
 .swiper-home {
   height: 100vh;
@@ -126,11 +137,13 @@ body::-webkit-scrollbar {
   position: absolute;
   bottom: 212px;
   left: 30px;
+  height: 197px;
 }
 .home_char {
   position: absolute;
   bottom: 120px;
   right: -200px;
+  width: 186px;
   transition: right 1s ease-in-out;
 }
 .swiper-slide-active .home_char {
@@ -160,11 +173,15 @@ body::-webkit-scrollbar {
   content: '';
   display: block;
   position: absolute;
-  bottom: -15px;
+  bottom: -14px;
   left: 163px;
   width: 67px;
   height: 2px;
   background-image: url('../img/type_a/life_tab_bar.png');
+  background-size: cover;
+}
+.life_tab img {
+  width: 131px;
 }
 .life>img:last-of-type {
   margin-top: 16px;
@@ -194,11 +211,15 @@ body::-webkit-scrollbar {
   content: '';
   display: block;
   position: absolute;
-  bottom: -15px;
+  bottom: -14px;
   left: 294px;
   width: 67px;
   height: 2px;
   background-image: url('../img/type_a/care_tab_bar.png');
+  background-size: cover;
+}
+.care_tab img {
+  width: 131px;
 }
 .care>img:last-of-type {
   margin-top: 15px;
@@ -207,6 +228,7 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 456px;
   left: 107px;
+  width: 110px;
 }
 .care_line {
   position: absolute;
@@ -244,18 +266,21 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 578px;
   left: 20px;
+  width: 172px;
 }
 .care_banner {
   cursor: pointer;
   position: absolute;
   top: 696px;
   left: 16px;
+  width: 361px;
 }
 .care_text {
   position: absolute;
   top: 2160px;
   left: 233px;
   opacity: 0;
+  width: 137px;
   transform-origin: center bottom;
 }
 .care_text.on {
@@ -276,11 +301,13 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 2209.8px;
   left: 260.12px;
+  width: 83.7px;
 }
 .care_left {
   position: absolute;
   top: 2212.95px;
   left: 254.75px;
+  width: 22.5px;
   transform-origin: right bottom;
 }
 .care_left.on {
@@ -299,6 +326,7 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 2212.95px;
   left: 326.77px;
+  width: 22.5px;
   transform-origin: left bottom;
 }
 .care_right.on {
