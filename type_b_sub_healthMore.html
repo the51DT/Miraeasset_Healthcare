@@ -17,6 +17,7 @@
       <div class="top-fix">
         <img src="./asset/img/type_b/status_bar.png" alt="상태바" />
         <img src="./asset/img/type_b/sub_healthMore_nav.png" alt="네비바" />
+        <div id="goback"></div>
       </div>
       <img
         src="./asset/img/type_b/sub_healthMore.png"
@@ -25,4 +26,9 @@
       />
     </div>
   </body>
+  <script>
+    document.getElementById("goback").addEventListener("click", () => {
+      window.history.back();
+    });
+  </script>
 </html>
