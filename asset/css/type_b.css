@@ -197,12 +197,14 @@ body::-webkit-scrollbar {
   top: 64px;
   left: 59px;
   overflow: hidden;
+  width: 139px;
 }
 .animation-main-box img:last-of-type {
   left: 114px;
   opacity: 0;
   animation: text 0.5s ease-in-out forwards;
   animation-delay: 1s;
+  width: 221px;
 }
 @keyframes mainAni {
   0% {
@@ -245,12 +247,14 @@ body::-webkit-scrollbar {
 .animation-btm-box02 a img {
   top: 73px;
   left: 73px;
+  width: 126px;
 }
 .animation-btm-box02 > img {
   left: 115px;
   opacity: 0;
   animation: text 0.5s ease-in-out forwards;
   animation-delay: 1s;
+  width: 232px;
 }
 @keyframes btmAni {
   0% {
