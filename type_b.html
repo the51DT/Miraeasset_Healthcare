@@ -6,10 +6,8 @@
     <title>미래에셋 헬스케어 B안</title>
     <link rel="stylesheet" href="./asset/css/type_b.css" />
     <link rel="stylesheet" href="./asset/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="./asset/css/swiper.min.css"
-    />
+    <link rel="stylesheet" href="./asset/css/swiper.min.css" />
+    <script src="./asset/js/swiper.js"></script>
   </head>
   <body>
     <div class="body__wrap">
@@ -76,9 +74,6 @@
       </div>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/TextPlugin.min.js"></script>
   <script>
     const body = document.querySelector("body");
     const bottom = document.querySelector(".bottom");
@@ -87,7 +82,7 @@
     const main03 = document.getElementById("main03");
     const mainAni = document.querySelector(".animation-main-box");
     const btmAni = document.querySelector(".animation-btm-box02");
-
+    const btmImg = document.querySelector(".bottom-fix-btm img");
     // 탭
     const tabs = document.querySelectorAll(".tab li");
     document.addEventListener("DOMContentLoaded", function () {
@@ -107,7 +102,7 @@
             if (bottom.classList.contains("on")) {
               bottom.classList.remove("on");
               bottom.style.overflow = "hidden";
-              bottom.style.height = "200px";
+              bottom.style.height = "175px";
               body.style.overflowY = "scroll";
             } else {
               bottom.classList.add("on");
@@ -124,7 +119,7 @@
             // 다른 탭을 클릭한 경우
             bottom.classList.remove("on");
             bottom.style.overflow = "hidden";
-            bottom.style.height = "200px";
+            bottom.style.height = "175px";
             body.style.overflowY = "scroll";
           }
           // '보험' 탭 클릭한 경우
@@ -146,8 +141,9 @@
       if (bottom.classList.contains("on")) {
         bottom.classList.remove("on");
         bottom.style.overflowY = "hidden";
-        bottom.style.height = "200px";
+        bottom.style.height = "175px";
         body.style.overflowY = "scroll";
+        btmImg.scrollTo(0, 0);
       } else {
         bottom.classList.add("on");
         tabs[1].classList.add("active");
@@ -172,24 +168,36 @@
       }
     });
 
-    // 숫자 카운트 애니메이션
-    gsap.to("#count", {
-      duration: 2,
-      innerHTML: 110300,
-      ease: "power4.out",
-      onStart: function () {
-        console.log("Animation started!");
-      },
-      onComplete: function () {
-        console.log("Animation completed!");
-      },
-      onUpdate: function () {
-        // GSAP의 onUpdate 콜백을 사용하여 숫자 형식 변경 및 콤마(,) 추가
-        const currentNumber = Math.floor(this.targets()[0].innerHTML);
-        const formattedNumber = currentNumber.toLocaleString();
-        this.targets()[0].innerHTML = formattedNumber;
-      },
-    });
+    //총 자산 증감
+    function numberCounter(target_frame, target_number) {
+      this.count = 0;
+      this.diff = 0;
+      this.target_count = parseInt(target_number);
+      this.target_frame = document.getElementById(target_frame);
+      this.timer = null;
+      this.counter();
+    }
+    numberCounter.prototype.counter = function () {
+      var self = this;
+      this.diff = this.target_count - this.count;
+
+      if (this.diff > 0) {
+        self.count += Math.ceil(this.diff / 5);
+      }
+
+      this.target_frame.innerHTML = this.count
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      if (this.count < this.target_count) {
+        this.timer = setTimeout(function () {
+          self.counter();
+        }, 20);
+      } else {
+        clearTimeout(this.timer);
+      }
+    };
+    new numberCounter("count", 110300);
 
     // 스와이프
     var swiper = new Swiper(".health-swiper", {

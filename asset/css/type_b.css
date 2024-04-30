@@ -1,15 +1,14 @@
 @font-face {
   font-family: "pretendard";
   font-weight: 700;
-  src: url("../font/Pretendard-Bold.otf")
-    format("opentype");
+  src: url("../font/Pretendard-Bold.otf") format("opentype");
 }
 body {
   background-color: black;
-  font-family: "pretendard", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
-    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: "pretendard", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
 }
 body::-webkit-scrollbar {
   display: none;
@@ -24,6 +23,7 @@ body::-webkit-scrollbar {
   width: 393px;
   position: absolute;
   top: 110px;
+  height: 100vh;
 }
 .top-fix {
   position: fixed;
@@ -214,8 +214,8 @@ body::-webkit-scrollbar {
   animation: btmAni 1s ease-in-out;
 }
 .animation-btm-box02 a img {
-  top: 51px;
-  left: 51px;
+  top: 73px;
+  left: 73px;
 }
 .animation-btm-box02 > img {
   left: 115px;
@@ -251,4 +251,12 @@ body::-webkit-scrollbar {
 .main03 {
   position: absolute;
   top: 142px;
+}
+#goback {
+  width: 24px;
+  height: 24px;
+  top: 69px;
+  left: 18px;
+  position: absolute;
+  cursor: pointer;
 }
