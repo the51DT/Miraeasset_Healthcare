@@ -292,7 +292,9 @@ body::-webkit-scrollbar {
   position: absolute;
   cursor: pointer;
 }
-
+.w393 {
+  width: 393px;
+}
 .main04::-webkit-scrollbar {
   display: none;
 }
