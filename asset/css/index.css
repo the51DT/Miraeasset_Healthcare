@@ -18,6 +18,9 @@
 .link + .link {
   margin-top: 38px;
 }
+.link > img {
+  width: 275px;
+}
 .copy {
   width: 337px;
   margin: 135px 0 41px;
