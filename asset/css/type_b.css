@@ -91,7 +91,7 @@ body::-webkit-scrollbar {
 .bottom {
   position: fixed;
   bottom: 0;
-  height: 200px;
+  height: 175px;
   overflow: hidden;
   z-index: 1;
   width: 393px;
@@ -110,9 +110,10 @@ body::-webkit-scrollbar {
   cursor: pointer;
   z-index: 3;
 }
-.bottom-fix-btm {
-  margin-top: 48px;
-}
+/* .bottom-fix-btm {
+  position: relative;
+  top: 48px;
+} */
 .health-swiper {
   top: 182px;
 }

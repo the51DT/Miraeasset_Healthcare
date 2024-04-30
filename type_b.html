@@ -104,6 +104,7 @@
               bottom.style.overflow = "hidden";
               bottom.style.height = "175px";
               body.style.overflowY = "scroll";
+              tabs[0].classList.add("active");
             } else {
               bottom.classList.add("on");
               bottom.style.overflowY = "scroll";
@@ -143,15 +144,16 @@
         bottom.style.overflowY = "hidden";
         bottom.style.height = "175px";
         body.style.overflowY = "scroll";
-        btmImg.scrollTo(0, 0);
+        btmImg.scrollIntoView({ block: "start" });
+        tabs[0].classList.remove("active");
       } else {
         bottom.classList.add("on");
         tabs[1].classList.add("active");
         tabs[0].classList.remove("active");
         tabs[2].classList.remove("active");
+
         bottom.style.overflowY = "scroll";
         bottom.style.height = "calc(100% - 174px)";
-        body.style.overflowY = "hidden";
       }
     });
     // 메인 애니메이션
