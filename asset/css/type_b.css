@@ -19,11 +19,13 @@ body::-webkit-scrollbar {
   background-color: #fff;
   position: relative;
 }
+.body__wrap.sub-page {
+  height: 100vh;
+}
 .body__wrap.sub-page .sub-img {
   width: 393px;
   position: absolute;
   top: 110px;
-  height: 100vh;
 }
 .top-fix {
   position: fixed;
