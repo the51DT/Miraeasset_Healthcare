@@ -19,7 +19,7 @@
         <li>
           <a><span class="heart01"></span>홈</a>
         </li>
-        <li>
+        <li class="tab02">
           <a><span class="heart02"></span>헬스케어</a>
         </li>
         <li>
@@ -52,7 +52,16 @@
       </div>
       <div class="bottom" id="main02">
         <div class="bottom-fix-top">
-          <img src="./asset/img/type_b/bottom-fix.jpg" alt="바텀시트" />
+          <img
+            src="./asset/img/type_b/bottom-fix.png"
+            alt="바텀시트"
+            class="imgfix"
+          />
+          <img
+            src="./asset/img/type_b/bottom-fix01.png"
+            alt="바텀시트"
+            class="imgnone"
+          />
         </div>
         <div class="bottom-fix-btm">
           <img src="./asset/img/type_b/bottom.png" alt="바텀시트" />
@@ -140,6 +149,7 @@
     const btmAni = document.querySelector(".animation-btm-box02");
     const btmAni2 = document.querySelector(".main04 .animation-btm-box02");
     const btmImg = document.querySelector(".bottom-fix-btm img");
+    const tab02 = document.querySelector(".tab02");
     // 탭
     const tabs = document.querySelectorAll(".tab li");
     document.addEventListener("DOMContentLoaded", function () {
@@ -158,6 +168,7 @@
             main02.style.display = "block";
             main03.style.display = "none";
             main04.style.display = "none";
+            tab02.classList.remove("on");
           }
           // '헬스케어' 탭을 클릭한 경우
           if (this.textContent.trim() === "헬스케어") {
@@ -165,6 +176,7 @@
             main02.style.display = "none";
             main03.style.display = "none";
             main04.style.display = "block";
+            tab02.classList.add("on");
           }
           // '보험' 탭 클릭한 경우
           if (this.textContent.trim() === "보험") {
@@ -172,6 +184,7 @@
             main02.style.display = "none";
             main03.style.display = "block";
             main04.style.display = "none";
+            tab02.classList.remove("on");
           }
         });
       });
@@ -194,16 +207,15 @@
       if (window.pageYOffset > 1800) {
         mainAni.style.display = "block";
       }
+      if (tab02.classList.contains("on")) {
+        if (window.pageYOffset > 500) {
+          btmAni2.style.display = "block";
+        }
+      }
     });
-    console.log(btmAni2);
 
     // 바텀시트 애니메이션
-    main04Ani.addEventListener("scroll", () => {
-      if (main04Ani.scrollTop > 500) {
-        btmAni2.style.display = "block";
-      }
-      console.log(main04Ani.scrollTop);
-    });
+    window.addEventListener("scroll", () => {});
 
     // 바텀시트 애니메이션
     bottom.addEventListener("scroll", () => {

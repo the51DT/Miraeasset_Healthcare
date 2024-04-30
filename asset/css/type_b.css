@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   max-width: 393px;
   background-color: #fff;
-  z-index: 3;
+  z-index: 110;
 }
 .tab {
   position: absolute;
@@ -119,6 +119,16 @@ body::-webkit-scrollbar {
 .bottom.on {
   height: calc(100% - 174px);
   overflow-y: scroll;
+}
+.bottom .imgfix {
+  z-index: 3;
+}
+.bottom .imgnone {
+  display: block;
+  z-index: 1;
+}
+.bottom.on .imgnone {
+  display: none;
 }
 .bottom::-webkit-scrollbar {
   display: none;
@@ -282,10 +292,7 @@ body::-webkit-scrollbar {
   position: absolute;
   cursor: pointer;
 }
-#main04 {
-  height: 100vh;
-  overflow-y: scroll;
-}
+
 .main04::-webkit-scrollbar {
   display: none;
 }
